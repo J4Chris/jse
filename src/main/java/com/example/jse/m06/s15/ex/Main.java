@@ -21,18 +21,37 @@ package com.example.jse.m06.s15.ex;
  * In the end, let the user knows who survived
  */
 public class Main {
-    public static void main(String[] args) {
-        // TODO: create actors, both warriors and wizards
-        Actor[] actors = { /* ... */ };
+	public static void main(String[] args) {
+		// create actors, both warriors and wizards
+		Actor[] actors = { new Warrior("Yvonne", 7), new Warrior("Aries", 12), new Wizard("Konstance", 69),
+				new Wizard("Kephra", 155) };
 
-        for (Actor actor : actors) {
-            System.out.println(actor);
-        }
+		for (Actor actor : actors) {
+			System.out.println(actor);
+		}
 
-        System.out.println("Let's fight ...");
-        for (Actor actor : actors) {
-            System.out.println("Actor: " + actor);
-            // ...
-        }
-    }
+		System.out.println("Let's fight ...");
+		for (int i = 0; i < actors.length; i++) {
+			if (actors[i].isAlive() == true) {
+				for (int j = i + 1; j < actors.length; j++) {
+					System.out.println("Actor " + actors[i].getName() + " is fighting Actor " + actors[j].getName());
+					if (actors[i].fight(actors[j]) == true) {
+						System.out.println("Actor " + actors[i].getName() + " has won!");
+					} else {
+						System.out.println("Actor " + actors[i].getName() + " has lost!");
+						break;
+					}
+
+				}
+			}
+
+		}
+
+		for (int i = 0; i < actors.length; i++) {
+			if (actors[i].isAlive() == true) {
+				System.out.println("Actor " + actors[i].getName() + " has survived!");
+			}
+		}
+
+	}
 }

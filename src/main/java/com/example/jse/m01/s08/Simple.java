@@ -4,7 +4,6 @@ public class Simple {
     public static void main(String[] args) {
         int value = 42;
         String name = "Bob";
-        String x = name;
         String other = null;
 
         System.out.println(value);
